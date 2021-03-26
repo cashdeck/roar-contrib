@@ -50,19 +50,19 @@ module Roar
 
           property :total_entries, exec_context: :decorator
 
-          link :self do |opts = {}|
-            page_url opts.merge(:page => current_page, :per_page => per_page)
+          link :self do |opts|
+            page_url (opts || {}).merge(:page => current_page, :per_page => per_page)
           end
 
-          link :next do |opts = {}|
+          link :next do |opts|
             if next_page
-              page_url opts.merge(:page => next_page, :per_page => per_page)
+              page_url (opts || {}).merge(:page => next_page, :per_page => per_page)
             end
           end
 
-          link :previous do |opts = {}|
+          link :previous do |opts|
             if previous_page
-              page_url opts.merge(:page => previous_page, :per_page => per_page)
+              page_url (opts || {}).merge(:page => previous_page, :per_page => per_page)
             end
           end
         end
